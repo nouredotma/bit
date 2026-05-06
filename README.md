@@ -1,11 +1,11 @@
-# Bit Store
+# Wer Store
 
 ![Laravel](https://img.shields.io/badge/Laravel-12.0-FF2D20?style=for-the-badge&logo=laravel)
 ![Vue.js](https://img.shields.io/badge/Vue.js-3.5-4FC08D?style=for-the-badge&logo=vue.js)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4.0-38B2AC?style=for-the-badge&logo=tailwind-css)
 ![Vite](https://img.shields.io/badge/Vite-7.0-646CFF?style=for-the-badge&logo=vite)
 
-**Bit Store** is a modern, high-performance e-commerce platform designed for speed, scalability, and an exceptional user experience. Built on the latest **Laravel 12** framework and powered by **Vue 3** and **Tailwind CSS 4**, Bit offers a premium shopping experience with a robust administrative backend.
+**Wer Store** is a modern, high-performance e-commerce platform designed for speed, scalability, and an exceptional user experience. Built on the latest **Laravel 12** framework and powered by **Vue 3** and **Tailwind CSS 4**, Wer offers a premium shopping experience with a robust administrative backend.
 
 ---
 
@@ -41,7 +41,7 @@
 
 ## 📦 Installation & Setup
 
-Getting started with **Bit Store** is straightforward. Follow these steps to set up your local development environment:
+Getting started with **Wer Store** is straightforward. Follow these steps to set up your local development environment:
 
 ### 1. Prerequisites
 Ensure you have the following installed:
@@ -52,8 +52,8 @@ Ensure you have the following installed:
 
 ### 2. Clone the Repository
 ```bash
-git clone https://github.com/nouredotma/bit.git
-cd bit
+git clone https://github.com/nouredotma/wer.git
+cd wer
 ```
 
 ### 3. Automated Setup
@@ -81,6 +81,6 @@ php artisan db:seed
 
 
 <p align="center">
-  Built with ❤️ by the Bit Team
+  Built with ❤️ by the Wer Team
 </p>
 

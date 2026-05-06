@@ -19,7 +19,7 @@
                 </div>
                 <div>
                     <h3 class="text-xs uppercase tracking-widest font-bold text-gray-400 mb-2">Email Us</h3>
-                    <p class="text-xl underline decoration-2 underline-offset-4">hello@bitstore.com</p>
+                    <p class="text-xl underline decoration-2 underline-offset-4">hello@werstore.com</p>
                 </div>
                 <div>
                     <h3 class="text-xs uppercase tracking-widest font-bold text-gray-400 mb-2">Call Us</h3>

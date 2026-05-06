@@ -3,7 +3,7 @@
 <section class="hero-page" style="background-image: url('https://images.unsplash.com/photo-1551028719-00167b16eac5?q=80&w=2000');">
     <div class="hero-overlay"></div>
     <div class="relative z-10 text-center text-white">
-        <h1 class="text-6xl font-bold tracking-tighter uppercase italic">About Bit</h1>
+        <h1 class="text-6xl font-bold tracking-tighter uppercase italic">About Wer</h1>
         <p class="text-lg tracking-widest uppercase opacity-80 mt-4">Redefining modern retail since 2025</p>
     </div>
 </section>
@@ -15,7 +15,7 @@
         </div>
         <div>
             <h2 class="text-4xl font-bold tracking-tighter uppercase mb-6 italic">Our Story</h2>
-            <p class="text-gray-600 leading-relaxed mb-6">At BIT, we believe that quality should never be a luxury. We started with a simple idea: create a marketplace that prioritizes craftsmanship, sustainability, and transparency. Our curated selection of products is designed for those who value both style and substance.</p>
+            <p class="text-gray-600 leading-relaxed mb-6">At WER, we believe that quality should never be a luxury. We started with a simple idea: create a marketplace that prioritizes craftsmanship, sustainability, and transparency. Our curated selection of products is designed for those who value both style and substance.</p>
             <p class="text-gray-600 leading-relaxed">Every item in our store is handpicked for its unique story and exceptional quality. We partner with makers and brands that share our commitment to ethical production and timeless design.</p>
         </div>
     </div>

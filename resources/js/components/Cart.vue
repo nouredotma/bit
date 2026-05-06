@@ -71,12 +71,12 @@ const closeCart = () => {
 
 const removeItem = (id) => {
   cartItems.value = cartItems.value.filter(item => item.id !== id);
-  localStorage.setItem('bit_cart', JSON.stringify(cartItems.value));
+  localStorage.setItem('wer_cart', JSON.stringify(cartItems.value));
   window.dispatchEvent(new CustomEvent('cart-updated', { detail: cartItems.value }));
 };
 
 onMounted(() => {
-  const savedCart = localStorage.getItem('bit_cart');
+  const savedCart = localStorage.getItem('wer_cart');
   if (savedCart) {
     cartItems.value = JSON.parse(savedCart);
     window.dispatchEvent(new CustomEvent('cart-updated', { detail: cartItems.value }));

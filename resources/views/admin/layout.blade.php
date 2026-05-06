@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Panel - Bit</title>
+    <title>Admin Panel - Wer</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
@@ -14,7 +14,7 @@
         <!-- Sidebar -->
         <aside class="admin-sidebar">
             <div class="px-4 mb-10">
-                <h1 class="text-2xl font-bold tracking-tighter italic">BIT ADMIN</h1>
+                <h1 class="text-2xl font-bold tracking-tighter italic">WER ADMIN</h1>
                 <p class="text-[10px] uppercase tracking-widest text-gray-400 mt-1">v1.0.2 Stable</p>
             </div>
             
