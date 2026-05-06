@@ -94,7 +94,7 @@ onMounted(() => {
     } else {
       cartItems.value.push({ ...item, quantity: item.quantity || 1 });
     }
-    localStorage.setItem('bit_cart', JSON.stringify(cartItems.value));
+    localStorage.setItem('wer_cart', JSON.stringify(cartItems.value));
     window.dispatchEvent(new CustomEvent('cart-updated', { detail: cartItems.value }));
     isOpen.value = true;
   });
