@@ -7,18 +7,26 @@
 @source '../**/*.vue';
 
 @theme {
-    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+    --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
         'Segoe UI Symbol', 'Noto Color Emoji';
-    --font-mono: 'Courier New', Courier, monospace;
+    --color-body: #0a0a0a;
+    --color-surface: #f5f5f7;
 }
 
 @layer base {
     body {
-        @apply antialiased text-gray-900 bg-white font-sans;
+        @apply antialiased bg-white font-sans;
+        color: var(--color-body);
     }
 }
 
 @layer components {
+    /* Consistent section padding across all pages */
+    .section-padding {
+        @apply w-full px-3 md:px-12;
+    }
+
+    /* Hero sections */
     .hero-home {
         @apply relative h-[100svh] w-full flex items-center justify-center bg-cover bg-center;
     }
@@ -28,32 +36,48 @@
     .hero-overlay {
         @apply absolute inset-0 bg-black/40;
     }
+
+    /* Header */
     .header-transparent {
-        @apply fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-transparent text-white;
+        @apply fixed top-0 left-0 w-full z-50 transition-colors duration-300 bg-transparent text-white;
     }
     .header-white {
-        @apply fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-white text-black shadow-md py-4;
+        @apply fixed top-0 left-0 w-full z-50 transition-colors duration-300 bg-white border-b border-gray-100;
+        color: var(--color-body);
+    }
+
+    /* Form inputs */
+    .form-input {
+        @apply w-full border border-gray-200 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-black/5 transition-colors;
+        background: var(--color-surface);
+    }
+    .checkout-input {
+        @apply w-full border border-gray-200 rounded-lg px-4 py-3.5 focus:outline-none focus:ring-2 focus:ring-black/5 focus:border-transparent transition-colors;
+        background: var(--color-surface);
+    }
+    .btn-primary {
+        @apply bg-[#0a0a0a] text-white py-3 px-6 rounded-lg font-semibold hover:bg-black/80 transition-colors;
     }
 }
 
-/* Admin Styles (Now aligned with Shop) */
+/* Admin Styles */
 .admin-login-body {
-    @apply bg-gray-50 flex items-center justify-center min-h-[100svh];
+    @apply flex items-center justify-center min-h-[100svh];
+    background: var(--color-surface);
 }
 .admin-login-card {
-    @apply bg-white p-10 shadow-xl rounded-2xl w-full max-w-md;
+    @apply bg-white p-10 rounded-2xl w-full max-w-md border border-gray-100;
 }
 .admin-input {
-    @apply w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-black/5 transition-all;
+    @apply w-full border border-gray-200 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-black/5 transition-colors;
+    background: var(--color-surface);
 }
 .admin-button {
-    @apply w-full bg-black text-white py-3 rounded-lg font-bold tracking-tight hover:bg-gray-800 transition-colors;
-}
-.checkout-input {
-    @apply w-full border border-gray-200 rounded-xl px-5 py-4 focus:outline-none focus:ring-2 focus:ring-black/10 focus:border-transparent transition-all bg-gray-50/50;
+    @apply w-full text-white py-3 rounded-lg font-semibold hover:bg-black/80 transition-colors;
+    background: var(--color-body);
 }
 
-/* Sidebar Layout */
+/* Admin Sidebar Layout */
 .admin-layout {
     @apply flex min-h-[100svh];
 }
@@ -61,11 +85,15 @@
     @apply w-64 bg-white border-r border-gray-100 p-8 flex flex-col gap-2;
 }
 .admin-content {
-    @apply flex-1 p-12 bg-gray-50/50;
+    @apply flex-1 p-12;
+    background: var(--color-surface);
 }
 .admin-nav-link {
-    @apply flex items-center px-4 py-2 text-gray-500 rounded-lg hover:bg-gray-50 hover:text-black transition-all font-medium;
+    @apply flex items-center px-4 py-2 text-gray-500 rounded-lg hover:bg-gray-50 transition-all font-medium;
+    &:hover { color: var(--color-body); }
 }
 .admin-nav-link.active {
-    @apply bg-black text-white hover:bg-black;
+    @apply text-white;
+    background: var(--color-body);
+    &:hover { background: var(--color-body); }
 }
