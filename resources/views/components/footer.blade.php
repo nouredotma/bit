@@ -1,6 +1,6 @@
-<footer class="relative overflow-hidden py-64 section-padding" style="-webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 25%); mask-image: linear-gradient(to bottom, transparent 0%, black 25%);">
+<footer class="relative overflow-hidden py-64 section-padding" style="-webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 30%); mask-image: linear-gradient(to bottom, transparent 0%, black 30%);">
     <video autoplay muted loop playsinline class="footer-video">
-        <source src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260314_131748_f2ca2a28-fed7-44c8-b9a9-bd9acdd5ec31.mp4" type="video/mp4">
+        <source src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260428_193507_4286c423-2fd9-4efd-92bd-91a939453fc1.mp4" type="video/mp4">
     </video>
     <div class="hero-overlay"></div>
     <div class="relative z-10">

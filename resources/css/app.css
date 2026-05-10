@@ -33,7 +33,6 @@
     .hero-inner {
         @apply relative w-full h-full overflow-hidden rounded-lg md:rounded-3xl flex items-center justify-center;
         border-bottom-right-radius: 0;
-        box-shadow: 0 0 0 1px white;
         border: none;
     }
     .hero-video,
@@ -44,7 +43,7 @@
         @apply relative h-[50svh] w-full flex items-center justify-center bg-cover bg-center;
     }
     .hero-overlay {
-        @apply absolute inset-0 bg-black/30;
+        @apply absolute inset-0 bg-black/20;
     }
 
     /* Header */
