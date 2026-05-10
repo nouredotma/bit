@@ -23,11 +23,10 @@ class DatabaseSeeder extends Seeder
 
         // Categories
         $categories = [
-            ['name' => 'Electronics', 'slug' => 'electronics'],
-            ['name' => 'Fashion', 'slug' => 'fashion'],
-            ['name' => 'Home & Living', 'slug' => 'home-living'],
-            ['name' => 'Sporting Goods', 'slug' => 'sporting-goods'],
-            ['name' => 'Accessories', 'slug' => 'accessories'],
+            ['name' => 'Hats', 'slug' => 'hats'],
+            ['name' => 'T-Shirts', 'slug' => 't-shirts'],
+            ['name' => 'Hoodies', 'slug' => 'hoodies'],
+            ['name' => 'Pants', 'slug' => 'pants'],
         ];
 
         foreach ($categories as $cat) {
@@ -36,16 +35,14 @@ class DatabaseSeeder extends Seeder
 
         // Products
         $productData = [
-            ['name' => 'Wireless Headphones', 'category_id' => 1, 'price' => 199.99, 'stock' => 50, 'image' => 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=1000', 'desc' => 'Premium noise-cancelling wireless headphones.'],
-            ['name' => 'Smartphone X', 'category_id' => 1, 'price' => 999.99, 'stock' => 20, 'image' => 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?q=80&w=1000', 'desc' => 'Latest flagship smartphone with a stunning display.'],
-            ['name' => 'Leather Jacket', 'category_id' => 2, 'price' => 249.99, 'stock' => 15, 'image' => 'https://images.unsplash.com/photo-1551028719-00167b16eac5?q=80&w=1000', 'desc' => 'Handcrafted genuine leather jacket.'],
-            ['name' => 'Running Shoes', 'category_id' => 4, 'price' => 129.99, 'stock' => 100, 'image' => 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1000', 'desc' => 'High-performance running shoes for enthusiasts.'],
-            ['name' => 'Minimalist Watch', 'category_id' => 5, 'price' => 159.99, 'stock' => 40, 'image' => 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=1000', 'desc' => 'Elegant minimalist watch with leather strap.'],
-            ['name' => 'Coffee Maker', 'category_id' => 3, 'price' => 79.99, 'stock' => 30, 'image' => 'https://images.unsplash.com/photo-1517633710910-3333e9da9680?q=80&w=1000', 'desc' => 'Automatic drip coffee maker for the perfect brew.'],
-            ['name' => 'Canvas Backpack', 'category_id' => 5, 'price' => 89.99, 'stock' => 25, 'image' => 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?q=80&w=1000', 'desc' => 'Durable canvas backpack for daily use.'],
-            ['name' => 'Ceramic Vase', 'category_id' => 3, 'price' => 45.00, 'stock' => 12, 'image' => 'https://images.unsplash.com/photo-1581783898377-1c85bf937427?q=80&w=1000', 'desc' => 'Hand-painted ceramic vase for home decor.'],
-            ['name' => 'Yoga Mat', 'category_id' => 4, 'price' => 35.50, 'stock' => 60, 'image' => 'https://images.unsplash.com/photo-1592432678016-e910b452f9a2?q=80&w=1000', 'desc' => 'Non-slip yoga mat for a stable practice.'],
-            ['name' => 'Laptop Pro 16', 'category_id' => 1, 'price' => 2499.00, 'stock' => 10, 'image' => 'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?q=80&w=1000', 'desc' => 'Powerful laptop for creative professionals.'],
+            ['name' => 'Classic Black Hat', 'category_id' => 1, 'price' => 24.99, 'stock' => 50, 'image' => 'https://images.unsplash.com/photo-1522312346375-d1a52e2b99b3?q=80&w=1000', 'desc' => 'A classic black cap to go with any outfit.'],
+            ['name' => 'Vintage Snapback', 'category_id' => 1, 'price' => 29.99, 'stock' => 30, 'image' => 'https://images.unsplash.com/photo-1556306535-0f09a536f0b1?q=80&w=1000', 'desc' => 'Vintage style snapback hat.'],
+            ['name' => 'White Cotton T-Shirt', 'category_id' => 2, 'price' => 19.99, 'stock' => 100, 'image' => 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=1000', 'desc' => 'Premium white cotton t-shirt.'],
+            ['name' => 'Graphic Print T-Shirt', 'category_id' => 2, 'price' => 24.99, 'stock' => 45, 'image' => 'https://images.unsplash.com/photo-1503342394128-c104d54dba01?q=80&w=1000', 'desc' => 'Comfortable graphic print tee.'],
+            ['name' => 'Grey Minimalist Hoodie', 'category_id' => 3, 'price' => 59.99, 'stock' => 40, 'image' => 'https://images.unsplash.com/photo-1556821840-3a63f95609a7?q=80&w=1000', 'desc' => 'Warm and cozy minimalist grey hoodie.'],
+            ['name' => 'Black Zip-Up Hoodie', 'category_id' => 3, 'price' => 64.99, 'stock' => 35, 'image' => 'https://images.unsplash.com/photo-1509942774463-acf339cf87d5?q=80&w=1000', 'desc' => 'Everyday black zip-up hoodie.'],
+            ['name' => 'Denim Jeans', 'category_id' => 4, 'price' => 49.99, 'stock' => 60, 'image' => 'https://images.unsplash.com/photo-1542272604-787c3835535d?q=80&w=1000', 'desc' => 'Classic blue denim jeans.'],
+            ['name' => 'Cargo Pants', 'category_id' => 4, 'price' => 54.99, 'stock' => 25, 'image' => 'https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?q=80&w=1000', 'desc' => 'Utility cargo pants with multiple pockets.'],
         ];
 
         foreach ($productData as $p) {
