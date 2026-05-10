@@ -2,7 +2,7 @@
 @section('title', 'Order History')
 @section('content')
 <div class="flex justify-between items-center mb-8">
-    <p class="text-gray-400 text-sm uppercase tracking-widest">Recent Activity</p>
+    <p class="text-gray-400 text-sm uppercase tracking-widest">{{ $orders->total() }} Total Orders</p>
 </div>
 
 <div class="overflow-x-auto">
@@ -34,7 +34,10 @@
                     <p class="font-bold text-sm">${{ number_format($order->total, 2) }}</p>
                 </td>
                 <td class="py-4">
-                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-widest bg-yellow-50 text-yellow-600">
+                    @php
+                        $colors = ['pending' => 'bg-yellow-50 text-yellow-600', 'processing' => 'bg-blue-50 text-blue-600', 'shipped' => 'bg-purple-50 text-purple-600', 'delivered' => 'bg-green-50 text-green-600', 'cancelled' => 'bg-red-50 text-red-600'];
+                    @endphp
+                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-widest {{ $colors[$order->status] ?? 'bg-gray-50 text-gray-600' }}">
                         {{ $order->status }}
                     </span>
                 </td>
@@ -51,5 +54,9 @@
             @endforelse
         </tbody>
     </table>
+</div>
+
+<div class="mt-8">
+    {{ $orders->links() }}
 </div>
 @endsection

@@ -2,7 +2,7 @@
 @section('title', 'Product Inventory')
 @section('content')
 <div class="flex justify-between items-center mb-8">
-    <p class="text-gray-400 text-sm uppercase tracking-widest">Total: {{ count($products) }} items</p>
+    <p class="text-gray-400 text-sm uppercase tracking-widest">Total: {{ $products->total() }} items</p>
     <a href="{{ route('admin.products.create') }}" class="bg-black text-white px-6 py-3 rounded-lg text-xs font-bold uppercase tracking-widest hover:bg-gray-800 transition-all">+ Add Product</a>
 </div>
 
@@ -42,9 +42,9 @@
                     <p class="text-sm {{ $product->stock < 10 ? 'text-red-500 font-bold' : 'text-gray-600' }}">{{ $product->stock }} units</p>
                 </td>
                 <td class="py-4">
-                    <span class="inline-flex items-center gap-1.5 text-[10px] uppercase tracking-widest font-bold text-green-500">
-                        <span class="h-1.5 w-1.5 bg-green-500 rounded-full"></span>
-                        Active
+                    <span class="inline-flex items-center gap-1.5 text-[10px] uppercase tracking-widest font-bold {{ $product->stock > 0 ? 'text-green-500' : 'text-red-500' }}">
+                        <span class="h-1.5 w-1.5 {{ $product->stock > 0 ? 'bg-green-500' : 'bg-red-500' }} rounded-full"></span>
+                        {{ $product->stock > 0 ? 'Active' : 'Out of Stock' }}
                     </span>
                 </td>
                 <td class="py-4 text-right">
@@ -52,14 +52,22 @@
                         <a href="{{ route('admin.products.edit', $product->id) }}" class="p-2 hover:bg-white hover:shadow-sm rounded-md transition-all text-gray-400 hover:text-black">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
                         </a>
-                        <button class="p-2 hover:bg-white hover:shadow-sm rounded-md transition-all text-gray-400 hover:text-red-500">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/></svg>
-                        </button>
+                        <form action="{{ route('admin.products.destroy', $product->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this product?')">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="p-2 hover:bg-white hover:shadow-sm rounded-md transition-all text-gray-400 hover:text-red-500">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/></svg>
+                            </button>
+                        </form>
                     </div>
                 </td>
             </tr>
             @endforeach
         </tbody>
     </table>
+</div>
+
+<div class="mt-8">
+    {{ $products->links() }}
 </div>
 @endsection

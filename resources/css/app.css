@@ -44,10 +44,13 @@
     @apply bg-white p-10 shadow-xl rounded-2xl w-full max-w-md;
 }
 .admin-input {
-    @apply w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 mb-4 focus:outline-none focus:ring-2 focus:ring-black/5 transition-all;
+    @apply w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-black/5 transition-all;
 }
 .admin-button {
     @apply w-full bg-black text-white py-3 rounded-lg font-bold tracking-tight hover:bg-gray-800 transition-colors;
+}
+.checkout-input {
+    @apply w-full border border-gray-200 rounded-xl px-5 py-4 focus:outline-none focus:ring-2 focus:ring-black/10 focus:border-transparent transition-all bg-gray-50/50;
 }
 
 /* Sidebar Layout */

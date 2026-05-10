@@ -38,14 +38,46 @@
     </div>
 </section>
 
-<section class="bg-black text-white py-32 px-10 text-center">
+<section class="bg-black text-white py-32 px-10 text-center" id="newsletter">
     <div class="max-w-3xl mx-auto">
         <h2 class="text-5xl font-bold tracking-tighter uppercase mb-6 italic">Join the evolution</h2>
         <p class="text-lg opacity-60 mb-10 tracking-wide uppercase">Subscribe to get early access to drops and exclusive offers.</p>
-        <div class="flex flex-col md:flex-row gap-4 justify-center">
-            <input type="email" placeholder="ENTER YOUR EMAIL" class="bg-transparent border border-white/30 px-6 py-4 w-full md:w-80 focus:outline-none focus:border-white uppercase tracking-widest text-sm">
-            <button class="bg-white text-black px-10 py-4 uppercase tracking-widest font-bold hover:bg-gray-200 transition-colors">Subscribe</button>
-        </div>
+        <form id="newsletterForm" class="flex flex-col md:flex-row gap-4 justify-center">
+            <input type="email" id="newsletterEmail" placeholder="ENTER YOUR EMAIL" class="bg-transparent border border-white/30 px-6 py-4 w-full md:w-80 focus:outline-none focus:border-white uppercase tracking-widest text-sm" required>
+            <button type="submit" class="bg-white text-black px-10 py-4 uppercase tracking-widest font-bold hover:bg-gray-200 transition-colors">Subscribe</button>
+        </form>
+        <p id="newsletterMsg" class="mt-4 text-sm uppercase tracking-widest hidden"></p>
     </div>
 </section>
+
+<script>
+document.getElementById('newsletterForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const email = document.getElementById('newsletterEmail').value;
+    const msg = document.getElementById('newsletterMsg');
+    const csrfToken = document.querySelector('meta[name="csrf-token"]').content;
+
+    try {
+        const res = await fetch('/newsletter', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'X-CSRF-TOKEN': csrfToken, 'Accept': 'application/json' },
+            body: JSON.stringify({ email })
+        });
+        const data = await res.json();
+        msg.classList.remove('hidden', 'text-red-400');
+        if (data.success) {
+            msg.classList.add('text-green-400');
+            msg.textContent = data.message;
+            document.getElementById('newsletterEmail').value = '';
+        } else {
+            msg.classList.add('text-red-400');
+            msg.textContent = data.message || 'Something went wrong.';
+        }
+    } catch (err) {
+        msg.classList.remove('hidden');
+        msg.classList.add('text-red-400');
+        msg.textContent = err.message?.includes('email') ? 'This email is already subscribed.' : 'Something went wrong.';
+    }
+});
+</script>
 @endsection

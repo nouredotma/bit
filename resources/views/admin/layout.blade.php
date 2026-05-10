@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Admin Panel - Wer</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -52,6 +53,19 @@
                     <div class="h-10 w-10 bg-black text-white flex items-center justify-center rounded-full font-bold text-xs">AD</div>
                 </div>
             </header>
+
+            @if(session('success'))
+            <div class="bg-green-50 text-green-700 px-6 py-4 rounded-xl mb-6 text-sm font-medium flex items-center gap-3">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
+                {{ session('success') }}
+            </div>
+            @endif
+
+            @if($errors->any())
+            <div class="bg-red-50 text-red-700 px-6 py-4 rounded-xl mb-6 text-sm font-medium">
+                {{ $errors->first() }}
+            </div>
+            @endif
             
             <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100">
                 @yield('content')

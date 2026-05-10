@@ -5,6 +5,7 @@ use App\Http\Controllers\Shop\HomeController;
 use App\Http\Controllers\Shop\ProductController;
 use App\Http\Controllers\Shop\CheckoutController;
 use App\Http\Controllers\Shop\ContactController;
+use App\Http\Controllers\Shop\NewsletterController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ProductController as AdminProductController;
 use App\Http\Controllers\Admin\CategoryController;
@@ -18,10 +19,11 @@ Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 Route::post('/contact', [ContactController::class, 'send'])->name('contact.send');
 Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout');
 Route::post('/checkout', [CheckoutController::class, 'store'])->name('checkout.store');
+Route::post('/newsletter', [NewsletterController::class, 'store'])->name('newsletter.store');
 
 Route::prefix('admin')->name('admin.')->group(function () {
     Route::get('/login', [DashboardController::class, 'loginPage'])->name('login');
-    Route::post('/login', [DashboardController::class, 'login'])->name('login.post');
+    Route::post('/login', [DashboardController::class, 'login'])->name('login.post')->middleware('throttle:5,1');
     Route::post('/logout', [DashboardController::class, 'logout'])->name('logout');
 
     Route::middleware('admin')->group(function () {
