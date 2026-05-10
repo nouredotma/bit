@@ -28,22 +28,67 @@
 
     /* Hero sections */
     .hero-home {
-        @apply relative h-[100svh] w-full flex items-center justify-center bg-cover bg-center;
+        @apply h-[100svh] w-full p-[5px] md:p-[10px];
+    }
+    .hero-inner {
+        @apply relative w-full h-full overflow-hidden rounded-lg md:rounded-3xl flex items-center justify-center;
+        border-bottom-right-radius: 0;
+        box-shadow: 0 0 0 1px white;
+        border: none;
+    }
+    .hero-video,
+    .footer-video {
+        @apply absolute inset-0 w-full h-full object-cover;
     }
     .hero-page {
         @apply relative h-[50svh] w-full flex items-center justify-center bg-cover bg-center;
     }
     .hero-overlay {
-        @apply absolute inset-0 bg-black/40;
+        @apply absolute inset-0 bg-black/30;
     }
 
     /* Header */
-    .header-transparent {
-        @apply fixed top-0 left-0 w-full z-50 transition-colors duration-300 bg-transparent text-white;
+    .nav-header {
+        @apply fixed top-0 right-0 w-auto z-50 flex items-center justify-end py-4 md:py-6;
+        mix-blend-mode: difference;
     }
-    .header-white {
-        @apply fixed top-0 left-0 w-full z-50 transition-colors duration-300 bg-white border-b border-gray-100;
-        color: var(--color-body);
+
+    /* Logo — separate fixed element so mix-blend-mode blends against page content */
+    .nav-logo {
+        @apply fixed top-0 left-0 z-50 text-4xl font-black tracking-tighter py-4 md:py-6;
+        color: white;
+        mix-blend-mode: difference;
+    }
+
+    /* Right-side pill container: nav links + cart */
+    .nav-pill {
+        @apply flex items-center gap-1 rounded-full border px-2 py-2;
+        border-color: rgba(255, 255, 255, 1);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+    }
+
+    .nav-link {
+        @apply text-base font-medium px-5 py-2 rounded-full transition-colors;
+        color: #ffffff;
+    }
+    .nav-link:hover {
+        background: rgba(255, 255, 255, 0.15);
+    }
+
+    /* Cart pill inside the nav-pill */
+    .nav-cart-pill {
+        @apply flex items-center gap-2 rounded-full px-5 py-2 transition-colors cursor-pointer relative;
+        background: #ffffff;
+        color: #000000;
+    }
+    .nav-cart-pill:hover {
+        background: rgba(255, 255, 255, 0.8);
+    }
+
+    .nav-cart-badge {
+        @apply absolute -top-1.5 -right-1.5 text-white text-[10px] font-bold h-[18px] w-[18px] flex items-center justify-center rounded-full;
+        background: var(--color-body);
     }
 
     /* Form inputs */

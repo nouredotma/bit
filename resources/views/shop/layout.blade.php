@@ -21,27 +21,6 @@
         @include('components.footer')
         @include('components.cart-modal')
     </div>
-    <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const nav = document.querySelector('nav');
-        const hasHero = document.querySelector('.hero-home, .hero-page');
-        
-        if (!hasHero && nav) {
-            nav.classList.remove('header-transparent');
-            nav.classList.add('header-white');
-        }
 
-        window.addEventListener('scroll', () => {
-            if (!nav) return;
-            if (window.scrollY > 50) {
-                nav.classList.remove('header-transparent');
-                nav.classList.add('header-white');
-            } else if (hasHero) {
-                nav.classList.add('header-transparent');
-                nav.classList.remove('header-white');
-            }
-        });
-    });
-    </script>
 </body>
 </html>

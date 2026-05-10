@@ -1,108 +1,144 @@
 @extends('shop.layout')
 @section('content')
-<section class="hero-home" style="background-image: url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=2000');">
-    <div class="hero-overlay"></div>
-    <div class="relative z-10 text-center text-white section-padding">
-        <h1 class="text-5xl md:text-7xl font-bold mb-6">Future of Retail</h1>
-        <p class="text-lg md:text-xl mb-10 font-medium">Premium essentials for the modern lifestyle.</p>
-        <a href="{{ route('products') }}" class="inline-block bg-white text-[#0a0a0a] px-8 py-3 font-semibold hover:bg-gray-100 transition-colors rounded-lg">Shop Collection</a>
-    </div>
-</section>
-
-<!-- Categories Section -->
-<section class="py-20 section-padding">
-    <div class="w-full">
-        <div class="mb-10 text-center">
-            <h2 class="text-3xl font-bold mb-3">Shop by Category</h2>
-            <p class="text-gray-500 text-sm">Explore our curated collections</p>
-        </div>
-        
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-            @foreach($categories as $category)
-                <a href="{{ route('products', ['category' => $category->slug]) }}" class="group block text-center">
-                    <div class="aspect-square bg-[#f5f5f7] mb-4 rounded-xl flex items-center justify-center transition-colors">
-                        <span class="text-2xl font-bold text-gray-300 group-hover:text-[#0a0a0a] transition-colors">
-                            {{ substr($category->name, 0, 1) }}
-                        </span>
-                    </div>
-                    <h3 class="font-semibold text-[#0a0a0a]">{{ $category->name }}</h3>
-                    <p class="text-gray-500 text-sm">{{ $category->products_count }} items</p>
-                </a>
-            @endforeach
-        </div>
-    </div>
-</section>
-
-<!-- Featured Products Section -->
-<section class="py-20 section-padding bg-transparent">
-    <div class="w-full">
-        <div class="flex justify-between items-end mb-10">
-            <div>
-                <h2 class="text-3xl font-bold mb-2">Featured Products</h2>
-                <p class="text-gray-500 text-sm">Our most popular items this season</p>
+    <section class="hero-home">
+        <div class="hero-inner">
+            <video autoplay muted loop playsinline class="hero-video">
+                <source
+                    src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260422_112520_ee819691-f2e8-4c54-bb77-3fb72c84eaa5.mp4"
+                    type="video/mp4">
+            </video>
+            <div class="hero-overlay"></div>
+            <div class="relative z-10 text-center text-white section-padding">
+                <h1 class="text-5xl md:text-7xl font-bold mb-6">Future of Retail</h1>
+                <p class="text-lg md:text-xl mb-10 font-medium">Premium essentials for the modern lifestyle.</p>
+                <a href="{{ route('products') }}"
+                    class="inline-block bg-white text-[#0a0a0a] px-8 py-3 font-semibold hover:bg-gray-100 transition-colors rounded-lg">Shop
+                    Collection</a>
             </div>
-            <a href="{{ route('products') }}" class="font-semibold text-sm hover:text-gray-600 transition-colors">View All &rarr;</a>
-        </div>
-        
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            @foreach($products as $product)
-                <div>
-                    <a href="{{ route('products.show', $product->slug) }}">
-                        <div class="aspect-[3/4] overflow-hidden bg-[#f5f5f7] mb-4 relative rounded-xl">
-                            <img src="{{ $product->image }}" alt="{{ $product->name }}" class="w-full h-full object-cover">
-                        </div>
-                    </a>
-                    <a href="{{ route('products.show', $product->slug) }}">
-                        <h3 class="font-semibold text-base mb-1">{{ $product->name }}</h3>
-                    </a>
-                    <p class="text-gray-500 text-sm">${{ number_format($product->price, 2) }}</p>
+
+            {{-- Bottom-right inverse-radius cutout with scroll indicator --}}
+            <div class="absolute bottom-0 right-0 bg-white rounded-tl-[1rem] md:rounded-tl-[2rem] z-10">
+                {{-- Top concave SVG mask --}}
+                <div class="absolute -top-[1.5rem] md:-top-[2.5rem] right-0 w-[1.5rem] md:w-[2.5rem] h-[1.5rem] md:h-[2.5rem] pointer-events-none">
+                    <svg width="100%" height="100%" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M56 56V0C56 30.9279 30.9279 56 0 56H56Z" fill="white" />
+                    </svg>
                 </div>
-            @endforeach
+                {{-- Left concave SVG mask --}}
+                <div class="absolute bottom-0 -left-[1.5rem] md:-left-[2.5rem] w-[1.5rem] md:w-[2.5rem] h-[1.5rem] md:h-[2.5rem] pointer-events-none">
+                    <svg width="100%" height="100%" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M56 56H0C30.9279 56 56 30.9279 56 0V56Z" fill="white" />
+                    </svg>
+                </div>
+                {{-- Scroll indicator (centered in visible white area) --}}
+                <div onclick="document.querySelector('.hero-home').nextElementSibling.scrollIntoView({behavior:'smooth'})" class="flex items-center gap-3 md:gap-4 px-4 py-2 md:px-6 md:py-3 cursor-pointer group">
+                    <div class="w-10 h-10 md:w-12 md:h-12 rounded-full border border-gray-200 flex items-center justify-center group-hover:bg-gray-50 transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 5v14" />
+                            <path d="m19 12-7 7-7-7" />
+                        </svg>
+                    </div>
+                    <span class="text-sm font-medium text-[#0a0a0a]">Scroll</span>
+                </div>
+            </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- Newsletter Section -->
-<section class="bg-[#0a0a0a] text-white py-24 section-padding text-center" id="newsletter">
-    <div class="w-full">
-        <h2 class="text-4xl font-bold mb-4">Join the evolution</h2>
-        <p class="text-gray-400 mb-10">Subscribe to get early access to drops and exclusive offers.</p>
-        <form id="newsletterForm" class="flex flex-col md:flex-row gap-4 justify-center">
-            <input type="email" id="newsletterEmail" placeholder="Enter your email" class="bg-white/10 border border-white/20 rounded-lg px-5 py-3 w-full md:w-80 focus:outline-none focus:border-white text-white placeholder-gray-400 transition-colors" required>
-            <button type="submit" class="bg-white text-[#0a0a0a] px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">Subscribe</button>
-        </form>
-        <p id="newsletterMsg" class="mt-4 text-sm hidden"></p>
-    </div>
-</section>
+    <!-- Categories Section -->
+    <section class="py-20 section-padding">
+        <div class="w-full">
+            <div class="grid grid-cols-2 gap-6">
+                @foreach($categories as $category)
+                    <a href="{{ route('products', ['category' => $category->slug]) }}" class="group block text-center">
+                        <div
+                            class="aspect-square bg-[#f5f5f7] mb-4 rounded-xl flex items-center justify-center transition-colors">
+                            <span class="text-2xl font-bold text-gray-300 group-hover:text-[#0a0a0a] transition-colors">
+                                {{ substr($category->name, 0, 1) }}
+                            </span>
+                        </div>
+                        <h3 class="font-semibold text-[#0a0a0a]">{{ $category->name }}</h3>
+                        <p class="text-gray-500 text-sm">{{ $category->products_count }} items</p>
+                    </a>
+                @endforeach
+            </div>
+        </div>
+    </section>
 
-<script>
-document.getElementById('newsletterForm').addEventListener('submit', async function(e) {
-    e.preventDefault();
-    const email = document.getElementById('newsletterEmail').value;
-    const msg = document.getElementById('newsletterMsg');
-    const csrfToken = document.querySelector('meta[name="csrf-token"]').content;
+    <!-- Featured Products Section -->
+    <section class="py-20 section-padding bg-transparent">
+        <div class="w-full">
+            <div class="flex justify-between items-end mb-10">
+                <div>
+                    <h2 class="text-3xl font-bold mb-2">Featured Products</h2>
+                    <p class="text-gray-500 text-sm">Our most popular items this season</p>
+                </div>
+                <a href="{{ route('products') }}" class="font-semibold text-sm hover:text-gray-600 transition-colors">View
+                    All &rarr;</a>
+            </div>
 
-    try {
-        const res = await fetch('/newsletter', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json', 'X-CSRF-TOKEN': csrfToken, 'Accept': 'application/json' },
-            body: JSON.stringify({ email })
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                @foreach($products as $product)
+                    <div>
+                        <a href="{{ route('products.show', $product->slug) }}">
+                            <div class="aspect-[3/4] overflow-hidden bg-[#f5f5f7] mb-4 relative rounded-xl">
+                                <img src="{{ $product->image }}" alt="{{ $product->name }}" class="w-full h-full object-cover">
+                            </div>
+                        </a>
+                        <a href="{{ route('products.show', $product->slug) }}">
+                            <h3 class="font-semibold text-base mb-1">{{ $product->name }}</h3>
+                        </a>
+                        <p class="text-gray-500 text-sm">${{ number_format($product->price, 2) }}</p>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="py-24 section-padding" id="newsletter">
+        <div class="bg-[#0a0a0a] text-white rounded-2xl py-20 px-8 md:px-16 text-center">
+            <h2 class="text-4xl font-bold mb-4">Join the evolution</h2>
+            <p class="text-gray-400 mb-10">Subscribe to get early access to drops and exclusive offers.</p>
+            <form id="newsletterForm" class="flex flex-col md:flex-row gap-4 justify-center">
+                <input type="email" id="newsletterEmail" placeholder="Enter your email"
+                    class="bg-white/10 border border-white/20 rounded-lg px-5 py-3 w-full md:w-80 focus:outline-none focus:border-white text-white placeholder-gray-400 transition-colors"
+                    required>
+                <button type="submit"
+                    class="bg-white text-[#0a0a0a] px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">Subscribe</button>
+            </form>
+            <p id="newsletterMsg" class="mt-4 text-sm hidden"></p>
+        </div>
+    </section>
+
+    <script>
+        document.getElementById('newsletterForm').addEventListener('submit', async function (e) {
+            e.preventDefault();
+            const email = document.getElementById('newsletterEmail').value;
+            const msg = document.getElementById('newsletterMsg');
+            const csrfToken = document.querySelector('meta[name="csrf-token"]').content;
+
+            try {
+                const res = await fetch('/newsletter', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json', 'X-CSRF-TOKEN': csrfToken, 'Accept': 'application/json' },
+                    body: JSON.stringify({ email })
+                });
+                const data = await res.json();
+                msg.classList.remove('hidden', 'text-red-400');
+                if (data.success) {
+                    msg.classList.add('text-green-400');
+                    msg.textContent = data.message;
+                    document.getElementById('newsletterEmail').value = '';
+                } else {
+                    msg.classList.add('text-red-400');
+                    msg.textContent = data.message || 'Something went wrong.';
+                }
+            } catch (err) {
+                msg.classList.remove('hidden');
+                msg.classList.add('text-red-400');
+                msg.textContent = err.message?.includes('email') ? 'This email is already subscribed.' : 'Something went wrong.';
+            }
         });
-        const data = await res.json();
-        msg.classList.remove('hidden', 'text-red-400');
-        if (data.success) {
-            msg.classList.add('text-green-400');
-            msg.textContent = data.message;
-            document.getElementById('newsletterEmail').value = '';
-        } else {
-            msg.classList.add('text-red-400');
-            msg.textContent = data.message || 'Something went wrong.';
-        }
-    } catch (err) {
-        msg.classList.remove('hidden');
-        msg.classList.add('text-red-400');
-        msg.textContent = err.message?.includes('email') ? 'This email is already subscribed.' : 'Something went wrong.';
-    }
-});
-</script>
+    </script>
 @endsection
