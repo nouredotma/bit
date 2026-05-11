@@ -102,6 +102,11 @@
     .btn-primary {
         @apply bg-[#0a0a0a] text-white py-3 px-6 rounded-lg font-semibold hover:bg-black/80 transition-colors;
     }
+
+    /* Category Cards */
+    .category-card-content {
+        @apply absolute inset-0 flex flex-col items-center justify-center text-center p-8 md:p-12 text-white;
+    }
 }
 
 /* Infinite Scroller */
