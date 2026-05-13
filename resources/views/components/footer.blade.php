@@ -50,9 +50,9 @@
         <div class="mt-12 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between font-light items-center gap-4 text-sm text-white/50">
             <p>&copy; {{ date('Y') }} wer. All rights reserved.</p>
             <div class="flex items-center gap-8">
-                <a href="#" class="footer-link"><span class="footer-link-text" data-text="Instagram">Instagram</span></a>
-                <a href="#" class="footer-link"><span class="footer-link-text" data-text="X (Twitter)">X (Twitter)</span></a>
-                <a href="#" class="footer-link"><span class="footer-link-text" data-text="Facebook">Facebook</span></a>
+                <a href="https://instagram.com/wer.ma" target="_blank" class="footer-link"><span class="footer-link-text" data-text="Instagram">Instagram</span></a>
+                <a href="https://x.com/wer.ma" target="_blank" class="footer-link"><span class="footer-link-text" data-text="X (Twitter)">X (Twitter)</span></a>
+                <a href="https://facebook.com/wer.ma" target="_blank" class="footer-link"><span class="footer-link-text" data-text="Facebook">Facebook</span></a>
             </div>
         </div>
 

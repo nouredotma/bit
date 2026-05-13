@@ -17,12 +17,17 @@
                     class="group inline-flex items-center gap-8 pl-5 pr-1 py-1 rounded-full bg-white text-black font-light transition-all duration-500 text-base tracking-tight">
                     <span>Explore the Drop</span>
                     <div class="w-11 h-11 bg-black rounded-full flex items-center justify-center overflow-hidden relative">
-                        <div class="relative w-5 h-5 transition-transform duration-[400ms] ease-out group-hover:translate-x-8 group-hover:-translate-y-8">
-                            <svg class="absolute inset-0 w-5 h-5 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <div
+                            class="relative w-5 h-5 transition-transform duration-[400ms] ease-out group-hover:translate-x-8 group-hover:-translate-y-8">
+                            <svg class="absolute inset-0 w-5 h-5 text-white" xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                                stroke-linecap="round" stroke-linejoin="round">
                                 <line x1="7" y1="17" x2="17" y2="7"></line>
                                 <polyline points="7 7 17 7 17 17"></polyline>
                             </svg>
-                            <svg class="absolute inset-0 w-5 h-5 text-white -translate-x-8 translate-y-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <svg class="absolute inset-0 w-5 h-5 text-white -translate-x-8 translate-y-8"
+                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                                 <line x1="7" y1="17" x2="17" y2="7"></line>
                                 <polyline points="7 7 17 7 17 17"></polyline>
                             </svg>
@@ -50,13 +55,19 @@
                 {{-- Scroll indicator (centered in visible white area) --}}
                 <div onclick="document.querySelector('.hero-home').nextElementSibling.scrollIntoView({behavior:'smooth'})"
                     class="flex items-center gap-3 md:gap-4 px-4 py-2 md:px-6 md:pl-3 md:py-3 cursor-pointer group">
-                    <div class="w-10 h-10 md:w-12 md:h-12 rounded-full bg-[#0a0a0a] flex items-center justify-center overflow-hidden relative">
-                        <div class="relative w-5 h-5 transition-transform duration-[400ms] ease-out group-hover:translate-y-8">
-                            <svg class="absolute inset-0 w-5 h-5 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <div
+                        class="w-10 h-10 md:w-12 md:h-12 rounded-full bg-[#0a0a0a] flex items-center justify-center overflow-hidden relative">
+                        <div
+                            class="relative w-5 h-5 transition-transform duration-[400ms] ease-out group-hover:translate-y-8">
+                            <svg class="absolute inset-0 w-5 h-5 text-white" xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                                stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M12 5v14" />
                                 <path d="m19 12-7 7-7-7" />
                             </svg>
-                            <svg class="absolute inset-0 w-5 h-5 text-white -translate-y-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <svg class="absolute inset-0 w-5 h-5 text-white -translate-y-8"
+                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M12 5v14" />
                                 <path d="m19 12-7 7-7-7" />
                             </svg>
@@ -71,32 +82,49 @@
     <!-- Products Section -->
     <section id="products-section" class="pt-12 section-padding scroll-mt-20">
         <div class="w-full">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-12">
+            <div class="grid grid-cols-2 gap-3 md:gap-12">
                 @foreach($products as $index => $product)
-                    <a href="{{ route('products.show', $product->slug) }}" class="group relative aspect-square overflow-hidden rounded-2xl md:rounded-4xl bg-neutral-100">
-                        <img src="{{ $product->main_image }}" alt="{{ $product->name }}" 
-                             class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
-                        
-                        <!-- Premium Gradient Overlay -->
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-black/40 opacity-80 transition-opacity duration-500"></div>
-                        
+                    <a href="{{ route('products.show', $product->slug) }}"
+                        class="group relative aspect-square overflow-hidden rounded-xl md:rounded-4xl bg-neutral-100">
+                        <img src="{{ $product->main_image }}" alt="{{ $product->name }}"
+                            class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110">
+
                         <!-- Content -->
-                        <div class="absolute inset-0 flex flex-col items-center justify-center text-center p-8 md:p-12 text-white">
-                            <span class="text-[10px] md:text-xs font-bold tracking-[0.4em] uppercase mb-2 opacity-70">
-                                Product
-                            </span>
-                            <h3 class="text-2xl md:text-5xl font-light mb-4 tracking-tight leading-tight">
-                                {{ $product->name }}
-                            </h3>
-                            
-                            <div class="flex justify-center">
-                                <span class="inline-flex items-center gap-2 px-8 py-3.5 bg-white text-[#0a0a0a] text-sm font-bold rounded-full hover:bg-neutral-100 transition-colors">
-                                    View Details
-                                    <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                                        <line x1="5" y1="12" x2="19" y2="12"></line>
-                                        <polyline points="12 5 19 12 12 19"></polyline>
-                                    </svg>
-                                </span>
+                        <div class="absolute inset-0">
+                            <!-- Top Right: View Details (Hero Style) -->
+                            <div class="absolute top-4 right-4 md:top-6 md:right-6 z-20">
+                                <div
+                                    class="inline-flex items-center gap-3 md:gap-5 pl-4 pr-1 py-1 rounded-full bg-white text-black font-light transition-all duration-500 text-[10px] md:text-sm tracking-tight opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0">
+                                    <span class="hidden md:inline">View Details</span>
+                                    <div
+                                        class="w-7 h-7 md:w-10 md:h-10 bg-[#0a0a0a] rounded-full flex items-center justify-center overflow-hidden relative">
+                                        <div
+                                            class="relative w-3.5 h-3.5 md:w-5 md:h-5 transition-transform duration-[400ms] ease-out group-hover:translate-x-8 group-hover:-translate-y-8">
+                                            <svg class="absolute inset-0 w-full h-full text-white"
+                                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                                stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                                                stroke-linejoin="round">
+                                                <line x1="7" y1="17" x2="17" y2="7"></line>
+                                                <polyline points="7 7 17 7 17 17"></polyline>
+                                            </svg>
+                                            <svg class="absolute inset-0 w-full h-full text-white -translate-x-8 translate-y-8"
+                                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                                stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                                                stroke-linejoin="round">
+                                                <line x1="7" y1="17" x2="17" y2="7"></line>
+                                                <polyline points="7 7 17 7 17 17"></polyline>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Bottom: Name and Price -->
+                            <div class="absolute bottom-3 left-3 right-3 md:bottom-6 md:left-6 md:right-6 flex items-end justify-between text-white">
+                                <h3 class="text-sm md:text-5xl font-light tracking-tight leading-none">{{ $product->name }}</h3>
+                                <div class="text-right shrink-0 leading-none">
+                                    <span class="text-xs md:text-3xl font-light tracking-tighter leading-none">{{ number_format($product->price, 2) }} MAD</span>
+                                </div>
                             </div>
                         </div>
                     </a>
@@ -107,10 +135,12 @@
 
     <!-- Newsletter Section -->
     <section class="py-12 section-padding" id="newsletter">
-        <div class="relative overflow-hidden rounded-2xl md:rounded-4xl p-8 md:p-16">
+        <div class="relative overflow-hidden rounded-2xl md:rounded-4xl p-6 md:p-12">
             <!-- Video Background -->
             <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover">
-                <source src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260328_115001_bcdaa3b4-03de-47e7-ad63-ae3e392c32d4.mp4" type="video/mp4">
+                <source
+                    src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260328_115001_bcdaa3b4-03de-47e7-ad63-ae3e392c32d4.mp4"
+                    type="video/mp4">
             </video>
             <div class="absolute inset-0 bg-black/30"></div>
 
@@ -122,20 +152,25 @@
                             Define Your New Standard
                         </h2>
                         <p class="text-white/80 text-sm md:text-base font-light tracking-tighter">
-                            At Wer, we believe in the power of intentionality. Our curated collections are more than just products; they are a reflection of a modern philosophy that values quality, sustainability, and timeless design. By joining our inner circle, you’ll receive early access to our limited seasonal drops, exclusive behind-the-scenes insights from our studio, and curated content designed to inspire your journey. This is your gateway to a refined lifestyle, where every detail is considered and every piece tells a story.
+                            At Wer, we believe in the power of intentionality. Our curated collections are more than just
+                            products; they are a reflection of a modern philosophy that values quality, sustainability, and
+                            timeless design. By joining our inner circle, you’ll receive early access to our limited
+                            seasonal drops, exclusive behind-the-scenes insights from our studio, and curated content
+                            designed to inspire your journey. This is your gateway to a refined lifestyle, where every
+                            detail is considered and every piece tells a story.
                         </p>
 
                         <!-- Social Proof -->
                         <div class="flex items-center gap-4 mt-4">
                             <div class="flex -space-x-3">
-                                <img src="https://images.pexels.com/photos/6102841/pexels-photo-6102841.jpeg" 
-                                     alt="Subscriber" class="w-10 h-10 rounded-full border-2 border-white/10 object-cover">
-                                <img src="https://images.pexels.com/photos/10634704/pexels-photo-10634704.jpeg" 
-                                     alt="Subscriber" class="w-10 h-10 rounded-full border-2 border-white/10 object-cover">
-                                <img src="https://images.pexels.com/photos/11718221/pexels-photo-11718221.jpeg" 
-                                     alt="Subscriber" class="w-10 h-10 rounded-full border-2 border-white/10 object-cover">
-                                <img src="https://images.pexels.com/photos/9696165/pexels-photo-9696165.jpeg" 
-                                     alt="Subscriber" class="w-10 h-10 rounded-full border-2 border-white/10 object-cover">
+                                <img src="https://images.pexels.com/photos/6102841/pexels-photo-6102841.jpeg"
+                                    alt="Subscriber" class="w-10 h-10 rounded-full border-2 border-white/10 object-cover">
+                                <img src="https://images.pexels.com/photos/10634704/pexels-photo-10634704.jpeg"
+                                    alt="Subscriber" class="w-10 h-10 rounded-full border-2 border-white/10 object-cover">
+                                <img src="https://images.pexels.com/photos/11718221/pexels-photo-11718221.jpeg"
+                                    alt="Subscriber" class="w-10 h-10 rounded-full border-2 border-white/10 object-cover">
+                                <img src="https://images.pexels.com/photos/9696165/pexels-photo-9696165.jpeg"
+                                    alt="Subscriber" class="w-10 h-10 rounded-full border-2 border-white/10 object-cover">
                             </div>
                             <span class="text-white/90 text-sm font-light tracking-tighter">
                                 <span class="font-medium">600+</span> individuals already joined
@@ -148,10 +183,10 @@
                         <form id="newsletterForm" class="w-full max-w-md">
                             <div class="relative p-1 bg-white/10 backdrop-blur-xl border border-white/20 rounded-full focus-within:border-white transition-all">
                                 <input type="email" id="newsletterEmail" placeholder="Enter your email"
-                                    class="bg-transparent pl-8 pr-32 py-3.5 w-full focus:outline-none text-white text-base placeholder-white/40 font-medium"
+                                    class="bg-transparent pl-5 md:pl-8 pr-24 md:pr-32 py-2.5 md:py-3.5 w-full focus:outline-none text-white text-sm md:text-base placeholder-white/40 font-medium"
                                     required>
                                 <button type="submit"
-                                    class="absolute right-1 top-1 bottom-1 bg-white text-[#0a0a0a] px-8 rounded-full font-bold hover:bg-neutral-100 transition-all text-xs tracking-widest cursor-pointer">
+                                    class="absolute right-1 top-1 bottom-1 bg-white text-[#0a0a0a] px-5 md:px-8 rounded-full font-bold hover:bg-neutral-100 transition-all text-[10px] md:text-xs tracking-widest cursor-pointer">
                                     Subscribe
                                 </button>
                             </div>

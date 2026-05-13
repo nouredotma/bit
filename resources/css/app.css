@@ -43,7 +43,7 @@
         @apply absolute inset-0 w-full h-full object-cover;
     }
     .hero-page {
-        @apply relative h-[50svh] w-full flex items-center justify-center bg-cover bg-center;
+        @apply h-[50svh] w-full p-[5px] md:p-[10px];
     }
     .hero-overlay {
         @apply absolute inset-0 bg-black/20;
@@ -144,7 +144,7 @@
 
 @keyframes scroll {
     to {
-        transform: translate(calc(-50% - 0.25rem));
+        transform: translate(calc(-33.333%));
     }
 }
 
@@ -242,4 +242,9 @@
 /* Product Card Refinement */
 .product-card-overlay {
     @apply absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500;
+}
+
+/* Active Thumbnail Indicator */
+.active-thumb .active-indicator {
+    opacity: 1 !important;
 }

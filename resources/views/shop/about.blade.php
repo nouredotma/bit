@@ -1,23 +1,31 @@
 @extends('shop.layout')
 @section('content')
-    <section class="hero-page"
-        style="background-image: url('https://images.unsplash.com/photo-1551028719-00167b16eac5?q=80&w=2000');">
-        <div class="hero-overlay"></div>
-        <div class="relative z-10 text-center text-white section-padding">
-            <h1 class="text-5xl md:text-6xl font-bold mb-4">About Wer</h1>
-            <p class="text-lg font-medium">Redefining modern retail since 2025.</p>
+    <section class="hero-page">
+        <div class="hero-inner">
+            <video autoplay muted loop playsinline class="hero-video">
+                <source
+                    src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260422_112520_ee819691-f2e8-4c54-bb77-3fb72c84eaa5.mp4"
+                    type="video/mp4">
+            </video>
+            <div class="hero-overlay"></div>
+            <div class="absolute bottom-3 left-0 z-10 text-left text-white px-3 md:px-9 max-w-5xl">
+                <h1 class="text-2xl md:text-5xl font-light mb-1 tracking-tight">About Wer</h1>
+                <p class="text-sm md:text-base mb-5 font-light text-white/70 max-w-2xl tracking-tighter">
+                    Redefining modern retail since 2025.
+                </p>
+            </div>
         </div>
     </section>
 
-    <section class="py-24 section-padding bg-transparent">
+    <section class="py-24 section-padding bg-white">
         <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
             <div class="aspect-square bg-[#f0f0f0] overflow-hidden rounded-2xl border border-gray-100">
                 <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=2000" alt="Team"
                     class="w-full h-full object-cover">
             </div>
             <div>
-                <h2 class="text-3xl font-bold mb-6">Our Story</h2>
-                <div class="space-y-4 text-gray-500 leading-relaxed">
+                <h2 class="text-3xl font-light tracking-tight mb-6">Our Story</h2>
+                <div class="space-y-4 text-gray-500 leading-relaxed font-light">
                     <p>At WER, we believe that quality should never be a luxury. We started with a simple idea: create a
                         marketplace that prioritizes craftsmanship, sustainability, and transparency. Our curated selection
                         of products is designed for those who value both style and substance.</p>
@@ -28,12 +36,12 @@
         </div>
     </section>
 
-    <section class="bg-[#f0f0f0] py-24 section-padding border-t border-gray-100">
+    <section class="bg-white py-24 section-padding border-t border-gray-50">
         <div class="w-full">
-            <h2 class="text-3xl font-bold mb-12 text-center">Why Choose Us?</h2>
+            <h2 class="text-3xl font-light tracking-tight mb-12 text-center">Why Choose Us?</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
-                <div class="bg-white p-8 rounded-2xl border border-gray-100">
-                    <div class="w-12 h-12 bg-[#f0f0f0] rounded-full flex items-center justify-center mb-6">
+                <div class="bg-[#f0f0f0] p-8 rounded-2xl border border-gray-100">
+                    <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center mb-6">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                             class="text-[#0a0a0a]">
@@ -42,11 +50,11 @@
                         </svg>
                     </div>
                     <h3 class="text-lg font-bold mb-3">Curated Quality</h3>
-                    <p class="text-gray-500 text-sm leading-relaxed">We don't just sell products; we curate experiences.
+                    <p class="text-gray-500 text-sm leading-relaxed font-light">We don't just sell products; we curate experiences.
                         Every item undergoes rigorous testing to ensure it meets our standards.</p>
                 </div>
-                <div class="bg-white p-8 rounded-2xl border border-gray-100">
-                    <div class="w-12 h-12 bg-[#f0f0f0] rounded-full flex items-center justify-center mb-6">
+                <div class="bg-[#f0f0f0] p-8 rounded-2xl border border-gray-100">
+                    <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center mb-6">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                             class="text-[#0a0a0a]">
@@ -56,11 +64,11 @@
                         </svg>
                     </div>
                     <h3 class="text-lg font-bold mb-3">Ethical Sourcing</h3>
-                    <p class="text-gray-500 text-sm leading-relaxed">Transparency is at our core. We work directly with
+                    <p class="text-gray-500 text-sm leading-relaxed font-light">Transparency is at our core. We work directly with
                         artisans and manufacturers who prioritize fair labor and sustainable materials.</p>
                 </div>
-                <div class="bg-white p-8 rounded-2xl border border-gray-100">
-                    <div class="w-12 h-12 bg-[#f0f0f0] rounded-full flex items-center justify-center mb-6">
+                <div class="bg-[#f0f0f0] p-8 rounded-2xl border border-gray-100">
+                    <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center mb-6">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                             class="text-[#0a0a0a]">
@@ -71,7 +79,7 @@
                         </svg>
                     </div>
                     <h3 class="text-lg font-bold mb-3">Modern Design</h3>
-                    <p class="text-gray-500 text-sm leading-relaxed">Minimalism meets functionality. Our products are
+                    <p class="text-gray-500 text-sm leading-relaxed font-light">Minimalism meets functionality. Our products are
                         designed to fit seamlessly into the modern, aesthetic lifestyle.</p>
                 </div>
             </div>
