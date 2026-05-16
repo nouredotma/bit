@@ -64,14 +64,18 @@
 
     /* Right-side pill container: nav links + cart */
     .nav-pill {
-        @apply flex items-center gap-1 rounded-full border px-2 py-2;
-        border-color: rgba(255, 255, 255, 1);
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
+        @apply flex items-center md:gap-1 rounded-full px-0 py-2 md:border md:px-2;
+    }
+    @media (min-width: 768px) {
+        .nav-pill {
+            border-color: rgba(255, 255, 255, 1);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
     }
 
     .nav-link {
-        @apply text-base font-medium px-5 py-2 rounded-full transition-colors;
+        @apply text-xs md:text-base font-medium px-3 md:px-5 py-1.5 md:py-2 rounded-full transition-colors;
         color: #ffffff;
     }
     .nav-link:hover {
@@ -80,7 +84,7 @@
 
     /* Cart pill inside the nav-pill */
     .nav-cart-pill {
-        @apply flex items-center gap-2 rounded-full px-5 py-2 transition-colors cursor-pointer relative;
+        @apply flex items-center gap-1.5 md:gap-2 rounded-full px-3 md:px-5 py-1.5 md:py-2 transition-colors cursor-pointer relative;
         background: #ffffff;
         color: #000000;
     }

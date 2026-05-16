@@ -1,6 +1,25 @@
 @extends('shop.layout')
 @section('content')
-<section class="pt-32 pb-24 section-padding">
+<section class="pt-24 md:pt-32 pb-24 section-padding">
+    <!-- Breadcrumb -->
+    <nav class="flex text-[10px] md:text-xs font-light mb-6 md:mb-8" aria-label="Breadcrumb">
+        <ol class="inline-flex items-center space-x-2">
+            <li class="inline-flex items-center">
+                <a href="{{ route('home') }}" class="text-gray-400 hover:text-black transition-colors duration-300">
+                    Home
+                </a>
+            </li>
+            <li>
+                <div class="flex items-center">
+                    <svg class="w-2 h-2 text-gray-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
+                    </svg>
+                    <span class="text-black ml-1 md:ml-2">{{ $product->name }}</span>
+                </div>
+            </li>
+        </ol>
+    </nav>
+
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-3 lg:gap-12 items-start">
         <!-- Image Gallery -->
         <div class="grid grid-cols-1 lg:grid-cols-6 gap-1 items-start">
@@ -36,18 +55,18 @@
 
         <!-- Product Details -->
         <div class="flex flex-col">
-            <div class="mb-6">
+            <div class="mb-4 md:mb-6">
                 <p class="text-[10px] text-gray-400 mb-1">Product #{{ str_pad($product->id, 4, '0', STR_PAD_LEFT) }}</p>
-                <div class="flex flex-col md:flex-row md:items-baseline justify-between gap-x-4 gap-y-2 mb-4">
-                    <h1 class="text-3xl md:text-5xl font-light tracking-tight">{{ $product->name }}</h1>
-                    <p class="text-xl md:text-2xl font-medium text-gray-800 shrink-0">{{ number_format($product->price, 2) }} MAD</p>
+                <div class="flex flex-row items-baseline justify-between gap-x-2 md:gap-x-4 mb-4">
+                    <h1 class="text-2xl md:text-5xl font-light tracking-tight">{{ $product->name }}</h1>
+                    <p class="text-lg md:text-2xl font-medium text-gray-800 shrink-0">{{ number_format($product->price, 2) }} MAD</p>
                 </div>
-                <p class="text-gray-500 leading-relaxed font-light text-lg mb-6 max-w-xl">
+                <p class="text-gray-500 leading-relaxed font-light text-sm md:text-lg mb-4 md:mb-6 max-w-xl">
                     {{ $product->description ?? 'No description provided.' }}
                 </p>
             </div>
 
-            <div class="space-y-6">
+            <div class="space-y-4 md:space-y-6">
                 @if($product->sizes_available && count($product->sizes_available) > 0)
                 <div class="space-y-3">
                     <h4 class="text-xs font-bold">Select Size</h4>
@@ -55,7 +74,7 @@
                         @foreach($product->sizes_available as $size)
                         <button 
                             onclick="selectSize(this, '{{ $size }}')"
-                            class="size-btn px-8 py-3 border-2 border-neutral-100 rounded-xl text-sm font-medium transition-all duration-300 cursor-pointer hover:border-black">
+                            class="size-btn px-8 py-3 border-2 border-neutral-100 rounded-full text-sm font-medium transition-all duration-300 cursor-pointer hover:border-black">
                             {{ $size }}
                         </button>
                         @endforeach
@@ -70,7 +89,7 @@
                         @foreach($product->colors_available as $color)
                         <button 
                             onclick="selectColor(this, '{{ $color }}')"
-                            class="color-btn px-8 py-3 border-2 border-neutral-100 rounded-xl text-sm font-medium transition-all duration-300 cursor-pointer hover:border-black">
+                            class="color-btn px-8 py-3 border-2 border-neutral-100 rounded-full text-sm font-medium transition-all duration-300 cursor-pointer hover:border-black">
                             {{ $color }}
                         </button>
                         @endforeach
@@ -78,7 +97,7 @@
                 </div>
                 @endif
 
-                <div class="pt-6 border-t border-neutral-100 space-y-6">
+                <div class="pt-4 md:pt-6 border-t border-neutral-100 space-y-4 md:space-y-6">
                     <div class="space-y-3">
                         <h4 class="text-xs font-bold">Quantity</h4>
                         <div class="flex items-center border-2 border-neutral-100 rounded-full w-fit px-4 py-2 bg-neutral-50/30">
@@ -155,7 +174,7 @@
                 }
             </script>
             
-            <div class="mt-10 pt-8 border-t border-neutral-100 grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div class="mt-6 md:mt-10 pt-6 md:pt-8 border-t border-neutral-100 grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div class="flex items-center gap-3 p-4 rounded-2xl bg-emerald-50/50 border border-emerald-100/50 transition-colors">
                     <div class="w-8 h-8 rounded-full bg-emerald-100/80 flex items-center justify-center">
                         <svg class="w-4 h-4 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
