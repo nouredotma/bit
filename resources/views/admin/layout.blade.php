@@ -12,13 +12,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body class="bg-gray-50/50">
+<body class="bg-surface">
     <div class="admin-layout">
         <!-- Sidebar -->
         <aside class="admin-sidebar">
-            <div class="px-4 mb-10">
-                <h1 class="text-2xl font-bold tracking-tighter italic">WER ADMIN</h1>
-                <p class="text-[10px] uppercase tracking-widest text-gray-400 mt-1">v1.0.2 Stable</p>
+            <div class="px-4 mb-10 text-center">
+                <h1 class="text-3xl font-bold">wer.</h1>
+                <p class="text-[10px] text-white/50 mt-1 tracking-wider">v1.0.2 Stable</p>
             </div>
             
             <nav class="flex flex-col gap-1">
@@ -36,20 +36,23 @@
                 </a>
             </nav>
             
-            <div class="mt-auto px-4 pt-10 border-t border-gray-100">
+            <div class="mt-auto px-3 pt-4 border-t border-white/10">
                 <form action="{{ route('admin.logout') }}" method="POST">
                     @csrf
-                    <button type="submit" class="text-sm font-bold text-red-500 hover:text-red-700 transition-colors uppercase tracking-widest">Logout</button>
+                    <button type="submit" class="text-sm font-bold text-red-500 hover:text-red-700 transition-colors cursor-pointer flex items-center justify-between w-full">
+                        Logout
+                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                    </button>
                 </form>
             </div>
         </aside>
 
         <!-- Main Content -->
         <main class="admin-content">
-            <header class="flex justify-between items-center mb-10">
+            <header class="flex justify-between items-center mb-6">
                 <div>
-                    <h2 class="text-3xl font-bold tracking-tight">@yield('title', 'Dashboard')</h2>
-                    <p class="text-gray-400 text-sm mt-1">Welcome back, Administrator.</p>
+                    <h2 class="text-3xl font-medium tracking-tight">@yield('title', 'Dashboard')</h2>
+                    <p class="text-black/50 text-sm mt-1">Welcome back, Administrator.</p>
                 </div>
                 <div class="flex items-center gap-4">
                     <div class="h-10 w-10 bg-black text-white flex items-center justify-center rounded-full font-bold text-xs">AD</div>

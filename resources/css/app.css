@@ -181,10 +181,10 @@
     background: var(--color-surface);
 }
 .admin-login-card {
-    @apply bg-white p-10 rounded-2xl w-full max-w-md border border-gray-100;
+    @apply bg-white p-8 rounded-2xl w-full max-w-sm border border-gray-100;
 }
 .admin-input {
-    @apply w-full border border-gray-200 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-black/5 transition-colors;
+    @apply w-full border border-gray-200 rounded-lg px-4 py-3 focus:outline-none focus:border-neutral-300 transition-colors;
     background: var(--color-surface);
 }
 .admin-button {
@@ -194,23 +194,24 @@
 
 /* Admin Sidebar Layout */
 .admin-layout {
-    @apply flex min-h-[100svh];
+    @apply flex h-[100svh] overflow-hidden;
 }
 .admin-sidebar {
-    @apply w-64 bg-white border-r border-gray-100 p-8 flex flex-col gap-2;
+    @apply w-64 px-4 py-5 flex flex-col gap-2 shrink-0 border-r border-white/5;
+    background: var(--color-body);
+    color: white;
 }
 .admin-content {
-    @apply flex-1 p-12;
+    @apply flex-1 p-6 overflow-y-auto;
     background: var(--color-surface);
 }
 .admin-nav-link {
-    @apply flex items-center px-4 py-2 text-gray-500 rounded-lg hover:bg-gray-50 transition-all font-medium;
-    &:hover { color: var(--color-body); }
+    @apply flex items-center px-4 py-2 text-white/60 rounded-lg transition-all font-medium;
+    &:hover { color: white; background: rgba(255, 255, 255, 0.05); }
 }
 .admin-nav-link.active {
-    @apply text-white;
-    background: var(--color-body);
-    &:hover { background: var(--color-body); }
+    @apply text-black bg-white;
+    &:hover { background: white; color: black; }
 }
 
 /* Modal Animations */
