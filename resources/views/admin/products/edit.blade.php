@@ -37,13 +37,16 @@
         </div>
 
         <div>
-            <label class="block text-xs font-medium text-black/50 mb-2 ml-1">Thumbnail Images (Select up to 4 to replace existing)</label>
+            <label class="block text-xs font-medium text-black/50 mb-2 ml-1">Thumbnail Images (Select to append, max 4 total)</label>
             <input type="file" name="thumbnail_images[]" multiple class="admin-input" accept="image/*">
             @if($product->thumbnail_images && count($product->thumbnail_images) > 0)
             <div class="mt-3 flex gap-2">
-                @foreach($product->thumbnail_images as $thumb)
-                <div class="w-16 h-16 bg-gray-50 rounded-lg overflow-hidden">
+                @foreach($product->thumbnail_images as $index => $thumb)
+                <div class="relative w-16 h-16 bg-gray-50 rounded-lg overflow-hidden group">
                     <img src="{{ $thumb }}" class="w-full h-full object-cover">
+                    <button type="button" onclick="if(confirm('Are you sure you want to delete this thumbnail?')) document.getElementById('delete-thumb-{{ $index }}').submit();" class="absolute top-1 right-1 bg-black/50 text-white rounded-full p-1 opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer">
+                        <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                    </button>
                 </div>
                 @endforeach
             </div>
@@ -76,4 +79,13 @@
         </div>
     </div>
 </form>
+
+@if($product->thumbnail_images)
+    @foreach($product->thumbnail_images as $index => $thumb)
+    <form id="delete-thumb-{{ $index }}" action="{{ route('admin.products.destroyThumbnail', ['id' => $product->id, 'index' => $index]) }}" method="POST" class="hidden">
+        @csrf
+        @method('DELETE')
+    </form>
+    @endforeach
+@endif
 @endsection

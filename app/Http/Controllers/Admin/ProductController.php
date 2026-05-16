@@ -103,9 +103,13 @@ class ProductController extends Controller
         }
 
         if ($request->hasFile('thumbnail_images')) {
-            $thumbnails = [];
+            $existing_thumbnails = json_decode($product->getRawOriginal('thumbnail_images'), true) ?? [];
+            $thumbnails = $existing_thumbnails;
+
             foreach ($request->file('thumbnail_images') as $file) {
-                $thumbnails[] = $file->store('products', 'public');
+                if (count($thumbnails) < 4) {
+                    $thumbnails[] = $file->store('products', 'public');
+                }
             }
             $validated['thumbnail_images'] = $thumbnails;
         } else {
@@ -144,5 +148,26 @@ class ProductController extends Controller
 
         return redirect()->route('admin.products.index')
             ->with('success', 'Product deleted successfully.');
+    }
+
+    public function destroyThumbnail($id, $index)
+    {
+        $product = Product::findOrFail($id);
+        $thumbnails = json_decode($product->getRawOriginal('thumbnail_images'), true) ?? [];
+
+        if (isset($thumbnails[$index])) {
+            // Optionally delete from storage here if desired:
+            // \Illuminate\Support\Facades\Storage::disk('public')->delete($thumbnails[$index]);
+            
+            unset($thumbnails[$index]);
+            // Re-index array
+            $thumbnails = array_values($thumbnails);
+            
+            $product->update([
+                'thumbnail_images' => empty($thumbnails) ? null : $thumbnails
+            ]);
+        }
+
+        return redirect()->back()->with('success', 'Thumbnail deleted successfully.');
     }
 }

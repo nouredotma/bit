@@ -83,8 +83,10 @@
                     @foreach($products as $index => $product)
                         <a href="{{ route('products.show', $product->slug) }}"
                             class="group relative aspect-square overflow-hidden rounded-xl md:rounded-4xl bg-neutral-100 border-2 border-neutral-200">
+                            <!-- Skeleton loader -->
+                            <div class="absolute inset-0 bg-neutral-200 animate-pulse z-0"></div>
                             <img src="{{ $product->main_image }}" alt="{{ $product->name }}"
-                                class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000">
+                                class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 opacity-0 z-10" onload="this.classList.remove('opacity-0'); this.previousElementSibling.classList.add('hidden');">
 
                             <!-- Content -->
                             <div class="absolute inset-0">

@@ -30,15 +30,17 @@
                     <!-- Main Image Thumbnail -->
                     <div class="thumb-btn relative aspect-square w-20 lg:w-full bg-neutral-50 rounded-2xl overflow-hidden cursor-pointer hover:opacity-80 transition-opacity active-thumb"
                          onclick="document.getElementById('mainImage').src='{{ $product->main_image }}'; document.querySelectorAll('.thumb-btn').forEach(b => b.classList.remove('active-thumb')); this.classList.add('active-thumb')">
-                        <img src="{{ $product->main_image }}" class="w-full h-full object-cover">
-                        <div class="absolute inset-0 border-2 border-black rounded-2xl pointer-events-none opacity-0 transition-opacity active-indicator"></div>
+                        <div class="absolute inset-0 bg-neutral-200 animate-pulse z-0"></div>
+                        <img src="{{ $product->main_image }}" class="absolute inset-0 w-full h-full object-cover opacity-0 z-10 transition-opacity duration-300" onload="this.classList.remove('opacity-0'); this.previousElementSibling.classList.add('hidden');">
+                        <div class="absolute inset-0 border-2 border-black rounded-2xl pointer-events-none opacity-0 transition-opacity active-indicator z-20"></div>
                     </div>
                     <!-- Additional Thumbnails -->
                     @foreach($product->thumbnail_images as $thumb)
                     <div class="thumb-btn relative aspect-square w-20 lg:w-full bg-neutral-50 rounded-2xl overflow-hidden cursor-pointer hover:opacity-80 transition-opacity"
                          onclick="document.getElementById('mainImage').src='{{ $thumb }}'; document.querySelectorAll('.thumb-btn').forEach(b => b.classList.remove('active-thumb')); this.classList.add('active-thumb')">
-                        <img src="{{ $thumb }}" class="w-full h-full object-cover">
-                        <div class="absolute inset-0 border-2 border-black rounded-2xl pointer-events-none opacity-0 transition-opacity active-indicator"></div>
+                        <div class="absolute inset-0 bg-neutral-200 animate-pulse z-0"></div>
+                        <img src="{{ $thumb }}" class="absolute inset-0 w-full h-full object-cover opacity-0 z-10 transition-opacity duration-300" onload="this.classList.remove('opacity-0'); this.previousElementSibling.classList.add('hidden');">
+                        <div class="absolute inset-0 border-2 border-black rounded-2xl pointer-events-none opacity-0 transition-opacity active-indicator z-20"></div>
                     </div>
                     @endforeach
                 </div>
@@ -47,8 +49,9 @@
 
             <!-- Main Image Column -->
             <div class="order-1 lg:order-2 lg:col-span-5">
-                <div class="aspect-square bg-neutral-50 rounded-3xl overflow-hidden">
-                    <img id="mainImage" src="{{ $product->main_image }}" alt="{{ $product->name }}" class="w-full h-full object-cover">
+                <div class="aspect-square bg-neutral-50 rounded-3xl overflow-hidden relative">
+                    <div class="absolute inset-0 bg-neutral-200 animate-pulse z-0"></div>
+                    <img id="mainImage" src="{{ $product->main_image }}" alt="{{ $product->name }}" class="absolute inset-0 w-full h-full object-cover opacity-0 z-10 transition-opacity duration-300" onload="this.classList.remove('opacity-0'); this.previousElementSibling.classList.add('hidden');">
                 </div>
             </div>
         </div>

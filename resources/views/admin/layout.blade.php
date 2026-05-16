@@ -72,9 +72,47 @@
             </div>
             @endif
             
-            <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100">
-                @yield('content')
+            <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 relative min-h-[400px]">
+                <!-- Skeleton Loader -->
+                <div id="admin-skeleton" class="absolute inset-0 bg-white z-10 p-8 rounded-2xl flex flex-col gap-6">
+                    <!-- Top stats row skeleton -->
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-2">
+                        <div class="h-28 bg-gray-100/80 rounded-2xl animate-pulse"></div>
+                        <div class="h-28 bg-gray-100/80 rounded-2xl animate-pulse"></div>
+                        <div class="h-28 bg-gray-100/80 rounded-2xl animate-pulse"></div>
+                    </div>
+                    <!-- Table header skeleton -->
+                    <div class="flex justify-between items-center mb-2">
+                        <div class="h-6 w-32 bg-gray-100/80 rounded animate-pulse"></div>
+                        <div class="h-4 w-16 bg-gray-100/80 rounded animate-pulse"></div>
+                    </div>
+                    <!-- Table rows skeleton -->
+                    <div class="space-y-4">
+                        <div class="h-12 bg-gray-50 rounded-xl animate-pulse"></div>
+                        <div class="h-12 bg-gray-50 rounded-xl animate-pulse"></div>
+                        <div class="h-12 bg-gray-50 rounded-xl animate-pulse"></div>
+                        <div class="h-12 bg-gray-50 rounded-xl animate-pulse"></div>
+                    </div>
+                </div>
+
+                <!-- Actual Content -->
+                <div id="admin-content" class="opacity-0 transition-opacity duration-300">
+                    @yield('content')
+                </div>
             </div>
+
+            <script>
+                document.addEventListener('DOMContentLoaded', () => {
+                    setTimeout(() => {
+                        const skeleton = document.getElementById('admin-skeleton');
+                        const content = document.getElementById('admin-content');
+                        if (skeleton && content) {
+                            skeleton.style.display = 'none';
+                            content.classList.remove('opacity-0');
+                        }
+                    }, 500); // 500ms smooth loading effect
+                });
+            </script>
         </main>
     </div>
 </body>
