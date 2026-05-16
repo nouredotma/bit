@@ -12,7 +12,7 @@
         </div>
     </section>
 
-    <section class="py-24 section-padding bg-white">
+    <section class="py-3 md:py-12 section-padding bg-white">
         <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
             <div class="aspect-square bg-[#f0f0f0] overflow-hidden rounded-2xl border border-gray-100">
                 <img src="/images/about.png" alt="Team" class="w-full h-full object-cover">

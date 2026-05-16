@@ -12,7 +12,7 @@
         </div>
     </section>
 
-    <section class="py-8 section-padding bg-white">
+    <section class="py-3 md:py-8 section-padding bg-white">
         <div class="w-full flex flex-col md:flex-row gap-10">
             <!-- Sidebar -->
             <aside class="md:w-1/5">

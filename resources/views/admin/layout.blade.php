@@ -31,6 +31,9 @@
                 <a href="{{ route('admin.orders.index') }}" class="admin-nav-link {{ request()->routeIs('admin.orders.*') ? 'active' : '' }}">
                     <span class="text-sm">Order History</span>
                 </a>
+                <a href="{{ route('admin.subscribers.index') }}" class="admin-nav-link {{ request()->routeIs('admin.subscribers.*') ? 'active' : '' }}">
+                    <span class="text-sm">Subscribers</span>
+                </a>
             </nav>
             
             <div class="mt-auto px-4 pt-10 border-t border-gray-100">

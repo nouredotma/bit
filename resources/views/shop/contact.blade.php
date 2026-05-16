@@ -12,7 +12,7 @@
     </div>
 </section>
 
-<section class="py-24 section-padding bg-transparent">
+<section class="py-3 md:py-24 section-padding bg-transparent">
     <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-20">
         <div>
             <h2 class="text-2xl md:text-5xl font-light text-[#0a0a0a] mb-10 leading-[1.1] tracking-tighter">Contact Info</h2>

@@ -11,8 +11,17 @@ class NewsletterController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'email' => 'required|email|max:255|unique:newsletter_subscribers,email',
+            'email' => 'required|email|max:255',
         ]);
+
+        $existing = NewsletterSubscriber::where('email', $validated['email'])->first();
+
+        if ($existing) {
+            return response()->json([
+                'success' => false,
+                'message' => 'This email already we have it',
+            ]);
+        }
 
         NewsletterSubscriber::create($validated);
 

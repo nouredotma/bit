@@ -34,7 +34,7 @@
         @apply h-[100svh] w-full p-[5px] md:p-[10px];
     }
     .hero-inner {
-        @apply relative w-full h-full overflow-hidden rounded-lg md:rounded-xl flex items-center justify-center;
+        @apply relative w-full h-full overflow-hidden rounded-xl md:rounded-4xl flex items-center justify-center;
         border-bottom-right-radius: 0;
         border: none;
     }
